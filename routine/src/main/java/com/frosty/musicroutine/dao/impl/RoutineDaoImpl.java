@@ -8,6 +8,7 @@ import com.frosty.musicroutine.domain.Routine;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class RoutineDaoImpl implements RoutineDao {
@@ -16,20 +17,18 @@ public class RoutineDaoImpl implements RoutineDao {
 	private SessionFactory sessionFactory;
 
 
-	@Override
 	public void addContact(Routine routine) {
 		sessionFactory.getCurrentSession().save(routine);
 		
 	}
 
-	@Override
+	@Transactional
 	@SuppressWarnings("unchecked")
 	public List<Routine> listRoutine() {
-		return sessionFactory.getCurrentSession().createQuery("from routine")
+		return sessionFactory.getCurrentSession().createQuery("from Routine")
 				.list();
 	}
 
-	@Override
 	public void removeRoutine(Integer id) {
 		Routine contact = (Routine) sessionFactory.getCurrentSession().load(
 				Routine.class, id);
