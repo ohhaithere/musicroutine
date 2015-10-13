@@ -42,5 +42,12 @@ public class RoutineDaoImpl implements RoutineDao {
 	public void updateRoutine(Routine routine) {
 		sessionFactory.getCurrentSession().update(routine);
 	}
+
+	@Override
+	public Routine getRoutine(Integer id) {
+		Routine routine = new Routine();
+		routine = (Routine) sessionFactory.getCurrentSession().get(Routine.class, id);
+		return routine;
+	}
 	
 }

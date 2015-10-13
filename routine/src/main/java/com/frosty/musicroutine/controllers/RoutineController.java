@@ -49,5 +49,10 @@ public class RoutineController {
 
 		return "redirect:/index";
 	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String updateContactForm(){
+		return "update";
+	}
 
 }

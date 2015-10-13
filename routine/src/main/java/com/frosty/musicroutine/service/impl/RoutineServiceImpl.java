@@ -41,6 +41,13 @@ public class RoutineServiceImpl implements RoutineService {
 	public void updateRoutine(Routine routine) {
 		routineDao.updateRoutine(routine);
 	}
+
+
+	@Override
+	public Routine getRoutine(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

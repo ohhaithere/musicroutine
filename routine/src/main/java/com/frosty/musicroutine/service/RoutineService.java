@@ -12,5 +12,7 @@ public interface RoutineService {
 	public void removeRoutine(Integer id);
 	
 	public void updateRoutine(Routine routine);
+	
+	public Routine getRoutine(Integer id);
 
 }
