@@ -9,5 +9,7 @@ public interface RoutineDao {
 	public List<Routine> listRoutine();
 
 	public void removeRoutine(Integer id);
+	
+	public void updateRoutine(Routine routine);
 
 }

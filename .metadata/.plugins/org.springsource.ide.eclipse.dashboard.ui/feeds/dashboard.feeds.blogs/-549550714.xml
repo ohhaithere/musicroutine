@@ -5,7 +5,65 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2015-10-08T20:56:00Z</updated>
+  <updated>2015-10-13T08:03:52Z</updated>
+  <entry>
+    <title>Spring Statemachine 1.0.0 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/13/spring-statemachine-1-0-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Janne Valkealahti</name>
+    </author>
+    <id>tag:spring.io,2015-10-10:2255</id>
+    <updated>2015-10-13T08:03:52Z</updated>
+    <content type="html">&lt;p&gt;We’re pleased to announce a release of &lt;a href="http://projects.spring.io/spring-statemachine"&gt;Spring Statemachine 1.0.0&lt;/a&gt;. I&amp;rsquo;d like to start by saying thank you for all who contributed in any way to make this happen. Artifacts are available either from &lt;a href="http://repo1.maven.org/maven2/org/springframework/statemachine/"&gt;Maven Central&lt;/a&gt; or from &lt;a href="http://repo.spring.io/libs-release/org/springframework/statemachine/"&gt;Spring Repository&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;What we actually got into this first release:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Easy to use flat one level state machine for simple use cases.&lt;/li&gt;
+  &lt;li&gt;Hierarchical state machine structure to ease complex state configuration.&lt;/li&gt;
+  &lt;li&gt;State machine regions to provide even more complex state configurations.&lt;/li&gt;
+  &lt;li&gt;Usage of triggers, transitions, guards and actions.&lt;/li&gt;
+  &lt;li&gt;Type safe configuration adapter.&lt;/li&gt;
+  &lt;li&gt;Builder pattern for easy instantiation for use outside of Spring Application context&lt;/li&gt;
+  &lt;li&gt;Recipes for usual use cases&lt;/li&gt;
+  &lt;li&gt;Distributed state machine based on a Zookeeper&lt;/li&gt;
+  &lt;li&gt;State machine event listeners.&lt;/li&gt;
+  &lt;li&gt;Spring IOC integration to associate beans with a state machine.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Lets take a quick recap how this project was born and how it evolved from first github import into a release. This also gives a little background how a new spring project is born or might be born. Project was kicked off at early parts of this year from a base work done for &lt;a href="http://projects.spring.io/spring-hadoop/"&gt;Spring Hadoop&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For SpringOne 2014 which were held at Dallas we were pushing a new container grouping feature into a Spring YARN which added a more high level functionality atop of YARN containers. These days &lt;a href="http://docs.spring.io/spring-xd/docs/1.2.1.RELEASE/reference/html/#running-on-YARN"&gt;YARN runtime for Spring XD&lt;/a&gt; and new &lt;a href="http://docs.spring.io/spring-cloud-dataflow/docs/1.0.0.M1/reference/html/getting-started-deploying-spring-cloud-dataflow.html#_deploying_on_yarn"&gt;Spring Cloud Dataflow YARN deployer&lt;/a&gt; are based on that. Communication with a Hadoop YARN resource manager is asynchronous by its nature so I ended up having a lot of trouble by trying to implement this specific part of a codebase without using a proper state machine concepts. Believe me when I say that I tried, tried really hard not to use a proper states and after a week or so I had to face a reality and face a fact that I tried to out-code my own code. I kinda ended up having something which marginally worked but if I touched any parts of that code hell broke loose. I rm&amp;rsquo;d everything and said to myself, &amp;ldquo;goddammit Janne, I need a state machine&amp;rdquo;.&lt;/p&gt;&lt;p&gt;After I completed a base implementation of a state machine, literally all my problems vanished, simply because a state machine was now controlling all the logic which had to happen in a specific order while all communication towards a YARN resource manager still happened asynchronously. And yes, now that we&amp;rsquo;ve stepped into a release phase, it gives us an option to replace Spring YARN internal state machine with this release.&lt;/p&gt;&lt;p&gt;Idea was born that it would probably be a really good idea to fork this specific state machine code into its own project, enhance it a little and fire up a new Spring Project and see if it gets any traction. If being honest I was a little surprised how much interest it got with this tech which is more that 50 years old. Good and solid concepts just don&amp;rsquo;t die nor they need to die!&lt;/p&gt;&lt;p&gt;Few words about a challenges I faced during this journey getting from an idea into a release:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Simple state machine without nested states and implementation hooks(i.e listeners) is very easy to implement.&lt;/li&gt;
+  &lt;li&gt;Introducing a deep nested states is where things gets a little complicated especially when you throw in various other features like entry/exit actions, different transition types and guards. I faced a lot of trouble with transitions between sub-states which had a different parent state.&lt;/li&gt;
+  &lt;li&gt;Adding orthogonal regions makes things even more complicated simply because in theory a state machine is single threaded but regions are independent and can be executed parallel. Lot of work went in to have base support for executing regions independently.&lt;/li&gt;
+  &lt;li&gt;Distributed state machine based on a zookeeper(via SPI abstraction) was a little crazy thing to do. Some would not even try it and testing is a nightmare(cannot be done via simple unit tests). I used &lt;code&gt;Aphyr&amp;#39;s&lt;/code&gt; &lt;a href="http://jepsen.io/"&gt;Jepsen&lt;/a&gt; framework for this which, if mildly speaking, put things is pieces, but eventually allowed me to find all sort of bugs when you step out from a single JVM and start to work with a distributed JVM&amp;rsquo;s. This was a painful but interesting journey.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Many people have asked if we have a roadmap? Short answer is yes and no. Yes because we definitely have a lot of stuff we want to implement and no because project has been driven by requests from a community. I started to follow &lt;a href="https://en.wikipedia.org/wiki/UML_state_machine"&gt;UML state machine spec&lt;/a&gt; for base features but eventually about 50% of extra features were requested by users. UML spec if very vague for some of its specification features and leaves a lot of details into the implentation itself. If you want something, speak up and go to &lt;a href="https://github.com/spring-projects/spring-statemachine/issues"&gt;GitHub Issues&lt;/a&gt;. Want to contribute, PR something(even a simple fix for a typo is very much appreciated!).&lt;/p&gt;&lt;p&gt;What we know so far:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Version 1.0.x will not add any new features which would change core concepts, but will continue to add normal maintanance/bug fixes. We may add new features which will enhance existing concepts.&lt;/li&gt;
+  &lt;li&gt;Version 1.1.x will focus on topics like security and execution model. We&amp;rsquo;re looking to have an easy integration with &lt;code&gt;Spring Security&lt;/code&gt;, &lt;code&gt;Spring Session&lt;/code&gt; to secure state machine actions. For execution we&amp;rsquo;re looking to replace or give an shot for &lt;a href="http://projectreactor.io"&gt;Reactor&lt;/a&gt; in favor of normal Framework task scheduling/execution.&lt;/li&gt;
+  &lt;li&gt;Version 2.x(in foreseeable future) will raise baseline with Spring Framework 5 and JDK8. 1.x serie will keep baseline with Spring Framework 4 and JDK7.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Try it, feel it, sniff it, and let us know what you think!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - October 13, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/10/13/this-week-in-spring-october-13-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-10-13:2256</id>
+    <updated>2015-10-13T07:24:15Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installation of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Krakow, Poland, for &lt;a href="http://15.jdd.org.pl/"&gt;JDD&lt;/a&gt; and then it&amp;rsquo;s off to St. Petersburg, Russia for the &lt;a href="http://jokerconf.com/en/"&gt;Joker conference&lt;/a&gt;! &lt;/p&gt;&lt;p&gt;We&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;After an extensive gestation period, one of our mad scientists &lt;a href="http://spring.io/blog/2015/10/07/spring-rest-docs-1-0-0-release"&gt;Andy Wilkinson just announced the first GA release of the Spring REST Docs project&lt;/a&gt; which makes it easy to pull together automatic and human-augmented API documentation based on the tests used to exercise the APIs under test. Spring REST Docs has become a runaway success and it&amp;rsquo;s definitely worth your time.&lt;/li&gt;
+  &lt;li&gt;Spring Tool Suite lead Martin Lippert just published a nice blog on the powerful &lt;a href="http://spring.io/blog/2015/10/08/the-spring-boot-dashboard-in-sts-part-1-local-boot-apps"&gt;local Spring Boot applications feature in STS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dr. Mark Pollack just &lt;a href="https://spring.io/blog/2015/10/08/spring-xd-1-3-m1-released"&gt;announced the release of Spring XD 1.3M1&lt;/a&gt; which includes updates to the included Spring Integration and Hadoop revisions, updated UI experiences, a Cassandra Sink, a header-enricher processor and much more; check it out!&lt;/li&gt;
+  &lt;li&gt;Benedikt Ritter has put together a detailed &lt;a href="https://blog.codecentric.de/en/2015/10/deploying-spring-boot-applications-to-heroku/"&gt;post on deploying Spring Boot applications to Heroku&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dan Vega&amp;rsquo;s published a quick walkthrough &lt;a href="https://www.youtube.com/watch?v=QTB_1HVVe-Q"&gt;of the various features in Spring Tool Suite on YouTube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Michael Simmons has an interesting post covering &lt;a href="http://info.michael-simons.eu/2015/10/09/building-cloud-native-apps-with-spring-boot-in-aachens-euregjug/"&gt;Spring ninja Stéphane Nicoll&amp;rsquo;s talk introducing current and new features in Spring Boot&lt;/a&gt; at the Aachens &lt;a href="http://euregjug.eu/"&gt;EuregJUG&lt;/a&gt; this year.&lt;/li&gt;
+  &lt;li&gt;Pas Apicella put together a nice look at &lt;a href="http://theblasfrompas.blogspot.com/2015/10/ibm-bluemix-spring-boot-elasticsearch.html"&gt;using Spring Boot and ElasticSearch repositories with IBM Bluemix&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;the &lt;em&gt;CodeWithC&lt;/em&gt; blog has a post on converting older Spring &lt;a href="http://www.codewithc.com/converting-the-sample-application-to-spring-boot"&gt;applications to use Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;our pal Petri Kainulainen is at it again, &lt;a href="http://www.petrikainulainen.net/programming/spring-framework/spring-from-the-trenches-using-type-converters-with-spring-mvc/"&gt;this time with a post on using type converters with Spring MVC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Jakub Narloch has put together a look at using &lt;a href="https://jmnarloch.wordpress.com/2015/10/07/spring-cloud-feign-spdyhttp2/"&gt;Spring Cloud and Feign along with SPDY and HTTP2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Our pal Ryan Baxter is at it again in his tutorial series on using Spring Cloud atop IBM Bluemix (which, after all, is a Cloud Foundry variant) with a &lt;a href="http://ryanjbaxter.com/2015/10/12/building-cloud-native-apps-with-spring-part-5/"&gt;post looking at circuit breakers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring XD 1.3 M1 released</title>
     <link rel="alternate" href="https://spring.io/blog/2015/10/08/spring-xd-1-3-m1-released" />
@@ -1715,27 +1773,5 @@ You made it possible to change the page size and have the UI flexibly respond.&#
 &lt;/div&gt;&#xD;
 &lt;/div&gt;&#xD;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration 4.2 Release is Available</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/09/10/spring-integration-4-2-release-is-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Gary Russell</name>
-    </author>
-    <id>tag:spring.io,2015-09-10:2233</id>
-    <updated>2015-09-10T12:47:47Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that the 4.2.0.RELEASE of Spring Integration is now available.&lt;/p&gt;&lt;p&gt;See the &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;version=15213"&gt;release notes&lt;/a&gt; for a few changes that have been applied since the release candidate was announced.&lt;/p&gt;&lt;p&gt;See the &lt;a href="https://spring.io/blog/2015/08/17/spring-integration-4-2-release-candidate-is-available"&gt;release candidate announcement&lt;/a&gt; and the &lt;a href="http://docs.spring.io/spring-integration/docs/4.2.0.RELEASE/reference/html/whats-new.html"&gt;reference document what&amp;rsquo;s new&lt;/a&gt; for complete details of the release content.&lt;/p&gt;&lt;p&gt;See the &lt;a href="http://projects.spring.io/spring-integration/"&gt;project page&lt;/a&gt; for links to downloads, documentation etc.&lt;/p&gt;&lt;h2&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h2&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com/"&gt;SpringOne2GX in Washington, DC next week&lt;/a&gt;. It’s simply the best opportunity to find out first hand all that’s going on and to provide direct feedback.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring AMQP 1.5.0 Release Available</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/09/10/spring-amqp-1-5-0-release-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Gary Russell</name>
-    </author>
-    <id>tag:spring.io,2015-09-10:2232</id>
-    <updated>2015-09-10T12:40:03Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that the 1.5.0.RELEASE of Spring AMQP is now available.&lt;/p&gt;&lt;p&gt;See the &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10450&amp;version=15283"&gt;release notes&lt;/a&gt; for a few changes that have been applied since the release candidate was announced.&lt;/p&gt;&lt;p&gt;See the &lt;a href="https://spring.io/blog/2015/08/14/spring-amqp-1-5-0-release-candidate-available"&gt;release candidate announcement&lt;/a&gt; and the &lt;a href="http://docs.spring.io/spring-amqp/docs/latest-ga/reference/html/_introduction.html#whats-new"&gt;reference document what&amp;rsquo;s new&lt;/a&gt; for complete details of the release content.&lt;/p&gt;&lt;p&gt;See the &lt;a href="http://projects.spring.io/spring-amqp/"&gt;project page&lt;/a&gt; for links to downloads, documentation etc.&lt;/p&gt;&lt;h2&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h2&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com/"&gt;SpringOne2GX in Washington, DC next week&lt;/a&gt;. It’s simply the best opportunity to find out first hand all that’s going on and to provide direct feedback.&lt;/p&gt;</content>
   </entry>
 </feed>

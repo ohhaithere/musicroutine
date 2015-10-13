@@ -37,5 +37,10 @@ public class RoutineDaoImpl implements RoutineDao {
 		}
 		
 	}
+
+	@Override
+	public void updateRoutine(Routine routine) {
+		sessionFactory.getCurrentSession().update(routine);
+	}
 	
 }
