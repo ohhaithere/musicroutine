@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+Routine name = ${routine.routine_name}
 </body>
 </html>

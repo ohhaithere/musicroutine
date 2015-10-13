@@ -50,8 +50,11 @@ public class RoutineController {
 		return "redirect:/index";
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String updateContactForm(){
+	@RequestMapping(value = "/update/{routineId}", method = RequestMethod.GET)
+	public String updateContactForm(Map<String, Object> map, @PathVariable("routineId") Integer routineId){
+		Routine routine = new Routine();
+		routine = routineService.getRoutine(routineId);
+		map.put("routine", routine);
 		return "update";
 	}
 
