@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.frosty.musicroutine.dao.RoutineDao;
 import com.frosty.musicroutine.domain.Routine;
 import com.frosty.musicroutine.service.RoutineService;
+import com.frosty.musicroutine.service.voud;
 
 @Service
 public class RoutineServiceImpl implements RoutineService {
@@ -35,5 +36,13 @@ public class RoutineServiceImpl implements RoutineService {
 		routineDao.removeRoutine(id);
 		
 	}
+
+
+	@Transactional
+	public void updateRoutine(Routine routine) {
+		routineDao.updateRoutine(routine);
+	}
+	
+	
 	
 }
