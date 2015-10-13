@@ -33,8 +33,17 @@ public class RoutineController {
 		return "redirect:/index";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String addContact(@ModelAttribute("routine") Routine contact,
+			BindingResult result) {
+
+		routineService.updateRoutine(contact);
+
+		return "redirect:/index";
+	}
+	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String updateRoutine(@ModelAttribute("routine") Routine contact,
 			BindingResult result) {
 
 		routineService.addContact(contact);

@@ -43,10 +43,9 @@ public class RoutineServiceImpl implements RoutineService {
 	}
 
 
-	@Override
+	@Transactional
 	public Routine getRoutine(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return routineDao.getRoutine(id);
 	}
 	
 	
