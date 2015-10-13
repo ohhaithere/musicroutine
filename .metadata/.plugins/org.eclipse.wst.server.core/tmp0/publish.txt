@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Tue Oct 13 23:55:37 MSK 2015
-org.eclipse.jst.jee.server\:routine=C\:\\pivotal-tc-server-developer-3.1.2.RELEASE\\base-instance\\wtpwebapps\\routine
