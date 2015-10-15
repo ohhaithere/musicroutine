@@ -58,7 +58,7 @@
 			<tr>
 				<td>${routine.routine_name}, ${routine.routine_html}</td>
 				<td>${routine.instrument}</td>
-				<td><a href="delete/${routine.id}"><spring:message code="label.delete" /></a></td>
+				<td><a href="delete/${routine.id}"><spring:message code="label.delete" /></a> <a href="update/${routine.id}">Update</a> }</td>
 			</tr>
 		</c:forEach>
 	</table>
