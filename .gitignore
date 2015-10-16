@@ -20,5 +20,9 @@
 .metadata/.plugins/org.eclipse.wst.server.core/publish/publish0.dat
 .metadata/.plugins/org.eclipse.wst.server.core/tmp0/publish.txt
 .metadata/
+<<<<<<< HEAD
 *.class
 routine/target/
+=======
+.metadata
+>>>>>>> 7ac1dab71d90a4edc6b89503ecbfa50a0d91b37c
