@@ -21,3 +21,4 @@
 .metadata/.plugins/org.eclipse.wst.server.core/tmp0/publish.txt
 .metadata/
 *.class
+routine/target/
