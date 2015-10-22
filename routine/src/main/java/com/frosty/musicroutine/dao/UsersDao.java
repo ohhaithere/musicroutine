@@ -14,4 +14,6 @@ public interface UsersDao {
 	public void updateUser(User user);
 	
 	public User getUser(Integer id);
+	
+	public boolean isValidUser(String username, String password);
 }

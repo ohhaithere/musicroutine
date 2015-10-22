@@ -1,7 +1,6 @@
 package com.frosty.musicroutine.dao.impl;
 
 import java.util.List;
-
 import com.frosty.musicroutine.dao.UsersDao;
 import com.frosty.musicroutine.domain.User;
 
@@ -35,6 +34,12 @@ public class UserDaoImpl implements UsersDao {
 	public User getUser(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean isValidUser(String username, String password){
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }
