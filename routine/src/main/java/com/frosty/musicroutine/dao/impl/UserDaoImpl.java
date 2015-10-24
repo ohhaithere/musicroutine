@@ -1,14 +1,21 @@
 package com.frosty.musicroutine.dao.impl;
 
 import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.frosty.musicroutine.dao.UsersDao;
 import com.frosty.musicroutine.domain.User;
 
 public class UserDaoImpl implements UsersDao {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().save(user);
 		
 	}
 
