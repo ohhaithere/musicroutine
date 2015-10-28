@@ -1,13 +1,17 @@
 package com.frosty.musicroutine.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.frosty.musicroutine.dao.UsersDao;
+import com.frosty.musicroutine.domain.Routine;
 import com.frosty.musicroutine.domain.User;
 
+@Repository
 public class UserDaoImpl implements UsersDao {
 	
 	@Autowired
@@ -45,8 +49,14 @@ public class UserDaoImpl implements UsersDao {
 
 	@Override
 	public boolean isValidUser(String username, String password){
-		// TODO Auto-generated method stub
-		return false;
+		List<User> routine = new ArrayList<User>();
+		routine = sessionFactory.getCurrentSession().createQuery("from User where user_name = '"  +username + "' and user_password = '" +password + "'").list();
+		try{
+			routine.get(0);
+			return true;
+		} catch(Exception e){
+			return false;
+		}
 	}
 	
 }

@@ -27,5 +27,11 @@
 				
 	<!-- Файл с настройками безопасности -->
 	<import resource="security.xml" />
+	
+	<bean id="loginDelegate" class="com.frosty.musicroutine.delegate.LoginDelegate">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<bean id="userService" class="com.frosty.musicroutine.service.impl.UserServiceImpl"/>
 
 </beans>

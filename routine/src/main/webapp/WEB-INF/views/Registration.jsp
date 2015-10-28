@@ -17,15 +17,15 @@
                 </tr>
                 <tr>
                     <td>User Name:</td>
-                    <td><form:input path="username" /></td>
+                    <td><form:input path="user_name" /></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><form:password path="password" /></td>
+                    <td><form:password path="user_password" /></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><form:input path="email" /></td>
+                    <td><form:input path="user_email" /></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center"><input type="submit" value="Register" /></td>

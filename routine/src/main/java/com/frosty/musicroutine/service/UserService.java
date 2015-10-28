@@ -10,5 +10,7 @@ public interface UserService
 	public boolean isValidUser(String username, String password);
 	
 	public User getUserInfo(Integer id);
+	
+	public void createUser(User user);
 }
 

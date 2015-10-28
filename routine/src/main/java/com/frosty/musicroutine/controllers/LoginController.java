@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.frosty.musicroutine.delegates.LoginDelegate;
+import com.frosty.musicroutine.delegate.LoginDelegate;
 import com.frosty.musicroutine.viewBean.LoginBean;
-
-
 
 @Controller
 public class LoginController
