@@ -1,0 +1,41 @@
+package com.frostmaster.musicroutine.userservice.config;
+
+import com.frostmaster.musicroutine.userservice.domain.model.entity.User;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.common.serialization.Serializer;
+import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import java.util.Properties;
+
+/**
+ * Created by Igor_Usachev on 3/7/2017.
+ */
+@Configuration
+public class ProducerProps {
+
+    @Bean
+    public KafkaProducer<String, User> workUnitProducer(KafkaProducerProps kafkaProducerProperties) {
+        Properties kafkaProps = new Properties();
+        kafkaProps.put("bootstrap.servers", kafkaProducerProperties.getBootstrap());
+
+//        kafkaProps.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+//        kafkaProps.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        KafkaProducer<String, User> producer = new KafkaProducer<String, User>(kafkaProps, stringKeySerializer(), workUnitJsonSerializer());
+        return producer;
+    }
+
+    @Bean
+    public Serializer stringKeySerializer() {
+        return new StringSerializer();
+    }
+
+    @Bean
+    public Serializer workUnitJsonSerializer() {
+        return new JsonSerializer();
+    }
+
+}
