@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan(basePackages = { "com.frostmaster.musicroutine.userservice.domain.model.entity" })
 @EnableJpaRepositories(basePackages = { "com.frostmaster.musicroutine.userservice.domain.repository" })
-
 public class App {
 
 

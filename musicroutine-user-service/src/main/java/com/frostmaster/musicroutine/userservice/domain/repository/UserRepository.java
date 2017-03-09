@@ -11,4 +11,7 @@ import java.util.UUID;
  */
 @RepositoryRestResource(collectionResourceRel = "user", path = "users")
 public interface UserRepository extends PagingAndSortingRepository<User, UUID> {
+
+    public User findByEmail(String email);
+
 }

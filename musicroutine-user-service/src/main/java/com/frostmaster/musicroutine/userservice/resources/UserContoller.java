@@ -1,14 +1,15 @@
 package com.frostmaster.musicroutine.userservice.resources;
 
 import com.frostmaster.musicroutine.userservice.domain.model.entity.User;
-import com.frostmaster.musicroutine.userservice.domain.repository.UserRepository;
+import com.frostmaster.musicroutine.userservice.domain.model.valueobject.UserVO;
 import com.frostmaster.musicroutine.userservice.domain.service.UserDispatcher;
+import com.frostmaster.musicroutine.userservice.domain.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.UUID;
 
 /**
  * Created by Igor_Usachev on 3/6/2017.
@@ -18,18 +19,26 @@ import java.util.UUID;
 public class UserContoller {
 
     @Autowired
-    private UserDispatcher workUnitDispatcher;
+    UserDispatcher workUnitDispatcher;
 
     @Autowired
-    UserRepository repository;
+    UserService userService;
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void create(@RequestBody UserVO userVO) throws Exception {
+        User user = new User();
+
+        BeanUtils.copyProperties(userVO, user);
+
+        userService.add(user);
+
+        if(workUnitDispatcher != null)
+            workUnitDispatcher.dispatch(user);
+    }
 
     @RequestMapping(method = RequestMethod.GET)
-    public void test(){
-        User user = new User("test","test","test");
-        UUID uuid = UUID.randomUUID();
-        user.setId(uuid);
-        repository.save(user);
-        workUnitDispatcher.dispatch(user);
+    public User get() throws Exception {
+        return userService.findByEmail("email@gay.ru");
     }
 
 }
