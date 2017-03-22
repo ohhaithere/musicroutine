@@ -20,7 +20,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.UUID;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -36,11 +37,12 @@ public class UsersControllerTest {
     @Mock
     private UserService userService;
 
+    @Mock
+    private UserDispatcher userDispatcher;
+
     @InjectMocks
     private UserContoller userController;
 
-    @InjectMocks
-    UserDispatcher workUnitDispatcher;
 
     @Before
     public void init(){
@@ -65,10 +67,9 @@ public class UsersControllerTest {
                         .content(asJsonString(user)))
                 .andExpect(status().isOk());
 
-//        verify(userService, times(1)).exists(user);
-//        verify(userService, times(1)).add(user);
-//        verifyNoMoreInteractions(userService);
     }
+
+    
 
     public static String asJsonString(final Object obj) {
         try {

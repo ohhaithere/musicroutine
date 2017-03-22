@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserContoller {
 
     @Autowired
-    UserDispatcher workUnitDispatcher;
+    UserDispatcher userDispatcher;
 
     @Autowired
     UserService userService;
@@ -32,8 +32,7 @@ public class UserContoller {
 
         userService.add(user);
 
-        if(workUnitDispatcher != null)
-            workUnitDispatcher.dispatch(user);
+        userDispatcher.dispatch(user);
     }
 
     @RequestMapping(method = RequestMethod.GET)
