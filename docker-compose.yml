@@ -1,6 +1,4 @@
 version: '2'
-
-
 services:
   PostgreSQL:
     restart: always
@@ -9,7 +7,6 @@ services:
       - "5432:5432"
     environment:
       - DEBUG=false
-
       - DB_USER=test
       - DB_PASS=123
       - DB_NAME=musicroutine
@@ -17,8 +14,19 @@ services:
     volumes:
       - /srv/docker/postgresql:/var/lib/postgresql
 
-  user-service:
-    build: musicroutine-user-service
-    restart: always
-    ports:
-       - 8761:8761
+
+  config:
+      build: config
+      restart: always
+      ports:
+        - 8888:8888
+
+
+  registry:
+      build: registry
+      restart: always
+      ports:
+        - 8762:8762
+
+
+

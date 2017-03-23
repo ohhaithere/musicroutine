@@ -2,3 +2,6 @@
 musicroutine-user-service/target/classes/com/frostmaster/musicroutine/userservice/domain/model/entity/Entity.class
 musicroutine-user-service/target/
 config/target/config-1.0.0-SNAPSHOT.jar
+registry/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+registry/target/classes/bootstrap.yml
+registry/target/

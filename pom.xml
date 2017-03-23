@@ -10,6 +10,7 @@
     <modules>
         <module>musicroutine-user-service</module>
         <module>config</module>
+        <module>registry</module>
     </modules>
     <packaging>pom</packaging>
 
