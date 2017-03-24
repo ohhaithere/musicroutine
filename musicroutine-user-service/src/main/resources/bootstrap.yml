@@ -1,9 +1,17 @@
 spring:
   application:
-    name: account-service
+    name: user-service
   cloud:
     config:
       uri: http://config:8888
       fail-fast: true
       password: test
       username: user
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+  instance:
+      hostname: registry
+      nonSecurePort: 8761

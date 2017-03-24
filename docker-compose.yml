@@ -26,7 +26,13 @@ services:
       build: registry
       restart: always
       ports:
-        - 8762:8762
+        - 8761:8761
+
+  user-service:
+        build: musicroutine-user-service
+        restart: always
+        ports:
+          - 3000:3000
 
 
 
