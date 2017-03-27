@@ -11,6 +11,8 @@
         <module>musicroutine-user-service</module>
         <module>config</module>
         <module>registry</module>
+        <module>monitoring</module>
+        <module>gateway</module>
     </modules>
     <packaging>pom</packaging>
 
