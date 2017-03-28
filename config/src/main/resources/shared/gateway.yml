@@ -1,0 +1,16 @@
+server:
+  port: 5000
+
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+    routes:
+      account-service:
+            path: /users/**
+            serviceId: user-service
+            stripPrefix: false
+            sensitiveHeaders:

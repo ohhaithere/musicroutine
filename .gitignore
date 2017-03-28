@@ -7,3 +7,5 @@ registry/target/classes/bootstrap.yml
 registry/target/
 config/target/
 monitoring/target/
+musicroutine-routine-service/target/
+gateway/target/

@@ -32,6 +32,11 @@ services:
       ports:
         - 8888:8888
 
+  gateway:
+      build: gateway
+      ports:
+       - 81:5000
+
 
   registry:
       build: registry
@@ -44,6 +49,12 @@ services:
         restart: always
         ports:
           - 3000:3000
+
+  routine-service:
+        build: musicroutine-routine-service
+        restart: always
+        ports:
+          - 4000:4000
 
   monitoring:
       build: monitoring
