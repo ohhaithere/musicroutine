@@ -9,8 +9,9 @@ This is a backend built with microservices architecture. It uses docker to setup
 
 ## HOW TO START IT
 And first you need to install Docker - https://www.docker.com/
+
 Then build root project with maven: **mvn clean install spring-boot:repackage**
 
 Then build a docker image: **docker-compose build**
 
-And start it: **docker-compose start**
+And start it: **docker-compose up**
