@@ -18,8 +18,10 @@ public class RoutineController {
     RoutineService routineService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void create(@RequestBody Routine routine) throws Exception {
+    public Routine create(@RequestBody Routine routine) throws Exception {
+        routine.setId(UUID.randomUUID());
         routineService.add(routine);
+        return routine;
     }
 
     @RequestMapping(method = RequestMethod.PUT)
