@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void delete(User user) throws Exception {
+        repository.delete(user);
+    }
+
+    @Override
     public User findById(String userId) throws Exception {
         return repository.findOne(UUID.fromString(userId));
     }

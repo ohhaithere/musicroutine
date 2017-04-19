@@ -9,9 +9,11 @@ public interface UserService {
 
     public void add(User user) throws Exception;
 
-    public void update(User booking) throws Exception;
+    public void update(User user) throws Exception;
 
-    public User findById(String restaurantId) throws Exception;
+    public void delete(User user) throws Exception;
+
+    public User findById(String userId) throws Exception;
 
     public User findByEmail(String email) throws Exception;
 
