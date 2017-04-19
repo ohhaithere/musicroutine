@@ -17,6 +17,8 @@ public class Routine {
     String text;
     String level;
     Integer minutes;
+
+    String instrument;
     Date dateCreated;
 
     public Routine() {
@@ -78,5 +80,13 @@ public class Routine {
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public String getInstrument() {
+        return instrument;
+    }
+
+    public void setInstrument(String instrument) {
+        this.instrument = instrument;
     }
 }
