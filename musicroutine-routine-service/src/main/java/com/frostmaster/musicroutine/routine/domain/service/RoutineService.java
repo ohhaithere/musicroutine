@@ -11,4 +11,6 @@ public interface RoutineService {
 
     public void update(Routine routine) throws Exception;
 
+    public void delete(Routine routine) throws Exception;
+
 }
