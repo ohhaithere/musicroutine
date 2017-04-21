@@ -15,6 +15,8 @@ public interface UserService {
 
     public User findById(String userId) throws Exception;
 
+    public Iterable<User> getAll() throws Exception;
+
     public User findByEmail(String email) throws Exception;
 
     public boolean exists(User user);
