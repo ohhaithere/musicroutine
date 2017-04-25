@@ -14,6 +14,7 @@
         <module>monitoring</module>
         <module>gateway</module>
         <module>musicroutine-routine-service</module>
+        <module>musicroutine-progress-service</module>
     </modules>
     <packaging>pom</packaging>
 
