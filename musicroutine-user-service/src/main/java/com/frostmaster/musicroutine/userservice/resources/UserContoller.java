@@ -29,7 +29,7 @@ public class UserContoller {
 
         userService.add(user);
 
-        userDispatcher.dispatch(user);
+        //userDispatcher.dispatch(user);
     }
 
     @RequestMapping("/{id}")

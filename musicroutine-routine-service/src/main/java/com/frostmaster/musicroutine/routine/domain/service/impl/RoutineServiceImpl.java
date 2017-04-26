@@ -19,6 +19,7 @@ public class RoutineServiceImpl implements RoutineService {
 
     @Override
     public void add(Routine routine) throws Exception {
+        routine.setId(UUID.randomUUID());
         repository.save(routine);
     }
 
