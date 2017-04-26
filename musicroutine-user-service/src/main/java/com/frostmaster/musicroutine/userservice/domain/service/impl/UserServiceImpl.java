@@ -40,6 +40,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Iterable<User> getAll() throws Exception {
+        return repository.findAll();
+    }
+
+    @Override
     public User findByEmail(String email) throws Exception {
         return repository.findByEmail(email);
     }

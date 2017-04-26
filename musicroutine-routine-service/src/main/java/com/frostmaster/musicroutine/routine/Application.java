@@ -1,4 +1,4 @@
-package com.frostmaster.musicroutine.routine.domain;
+package com.frostmaster.musicroutine.routine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -38,6 +38,11 @@ public class UserContoller {
         return user;
     }
 
+    @RequestMapping
+    public Iterable<User> getAll() throws Exception {
+        return userService.getAll();
+    }
+
     @RequestMapping(method = RequestMethod.PUT)
     public void update(@RequestBody UserVO userVO) throws Exception {
         User user = new User();

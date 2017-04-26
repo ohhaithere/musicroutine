@@ -1,7 +1,9 @@
 package com.frostmaster.musicroutine.routine.resources;
 
 import com.frostmaster.musicroutine.routine.domain.model.Routine;
+import com.frostmaster.musicroutine.routine.domain.model.valueobject.RoutineVO;
 import com.frostmaster.musicroutine.routine.domain.service.RoutineService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +20,9 @@ public class RoutineController {
     RoutineService routineService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public Routine create(@RequestBody Routine routine) throws Exception {
+    public Routine create(@RequestBody RoutineVO routineToCreate) throws Exception {
+        Routine routine = new Routine();
+        BeanUtils.copyProperties(routineToCreate, routine);
         routine.setId(UUID.randomUUID());
         routineService.add(routine);
         return routine;

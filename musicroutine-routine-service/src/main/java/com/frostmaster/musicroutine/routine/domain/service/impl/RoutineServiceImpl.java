@@ -11,7 +11,7 @@ import java.util.UUID;
 /**
  * Created by Igor_Usachev on 3/28/2017.
  */
-@Service("userService")
+@Service("routineService")
 public class RoutineServiceImpl implements RoutineService {
 
     @Autowired
