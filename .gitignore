@@ -10,3 +10,4 @@ monitoring/target/
 musicroutine-routine-service/target/
 gateway/target/
 musicroutine-progress-service/musicroutine-progress-service.iml
+musicroutine-progress-service/target/
