@@ -56,6 +56,12 @@ services:
           ports:
             - 6000:6000
 
+  progress-service:
+            build: musicroutine-achievment-service
+            restart: always
+            ports:
+              - 7000:7000
+
   routine-service:
         build: musicroutine-routine-service
         restart: always
