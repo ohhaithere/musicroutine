@@ -3,5 +3,5 @@ server:
 
 kafka:
   producer:
-    bootstrap: localhost:9092
+    bootstrap: kafka:9092
     topic: users
