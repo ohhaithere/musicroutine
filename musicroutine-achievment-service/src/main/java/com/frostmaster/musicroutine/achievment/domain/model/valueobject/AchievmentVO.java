@@ -56,11 +56,11 @@ public class AchievmentVO {
         this.pic = pic;
     }
 
-    public UUID getUser_id() {
+    public UUID getUseId() {
         return user_id;
     }
 
-    public void setUser_id(UUID user_id) {
+    public void setUserId(UUID user_id) {
         this.user_id = user_id;
     }
 

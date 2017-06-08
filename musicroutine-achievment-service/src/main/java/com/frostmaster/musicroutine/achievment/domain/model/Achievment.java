@@ -25,7 +25,7 @@ public class Achievment {
         this.setName(name);
         this.setDate(date);
         this.setPic(pic);
-        this.setUser_id(user_id);
+        this.setUserId(user_id);
     }
 
     public UUID getId() {
@@ -60,11 +60,11 @@ public class Achievment {
         this.pic = pic;
     }
 
-    public UUID getUser_id() {
+    public UUID getUseId() {
         return user_id;
     }
 
-    public void setUser_id(UUID user_id) {
+    public void setUserId(UUID user_id) {
         this.user_id = user_id;
     }
 
