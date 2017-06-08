@@ -15,7 +15,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserRepository repository;
+    private UserRepository repository;
 
     @Override
     public void add(User user) throws Exception {

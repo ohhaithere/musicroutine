@@ -17,7 +17,7 @@ import java.util.UUID;
 public class AchievmentController {
 
     @Autowired
-    AchievmentService achievmentService;
+    private AchievmentService achievmentService;
 
     @RequestMapping(method = RequestMethod.POST)
     public Achievment create(@RequestBody AchievmentVO achievmentToCreate) throws Exception {

@@ -17,7 +17,7 @@ import java.util.UUID;
 public class ProgressController {
 
     @Autowired
-    ProgressService progressService;
+    private ProgressService progressService;
 
     @RequestMapping(method = RequestMethod.POST)
     public Progress create(@RequestBody ProgressVO routineToCreate) throws Exception {

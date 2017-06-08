@@ -15,7 +15,7 @@ import java.util.UUID;
 public class ProgressServiceImpl implements ProgressService {
 
     @Autowired
-    ProgressRepository repository;
+    private ProgressRepository repository;
 
 
     @Override

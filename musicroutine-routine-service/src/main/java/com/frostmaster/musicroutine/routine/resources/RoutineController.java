@@ -17,7 +17,7 @@ import java.util.UUID;
 public class RoutineController {
 
     @Autowired
-    RoutineService routineService;
+    private RoutineService routineService;
 
     @RequestMapping(method = RequestMethod.POST)
     public Routine create(@RequestBody RoutineVO routineToCreate) throws Exception {

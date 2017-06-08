@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserContoller {
 
     @Autowired
-    UserDispatcher userDispatcher;
+    private UserDispatcher userDispatcher;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(method = RequestMethod.POST)
     public void create(@RequestBody UserVO userVO) throws Exception {

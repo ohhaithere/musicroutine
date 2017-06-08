@@ -15,7 +15,7 @@ import java.util.UUID;
 public class RoutineServiceImpl implements RoutineService {
 
     @Autowired
-    RoutineRepository repository;
+    private RoutineRepository repository;
 
     @Override
     public void add(Routine routine) throws Exception {
