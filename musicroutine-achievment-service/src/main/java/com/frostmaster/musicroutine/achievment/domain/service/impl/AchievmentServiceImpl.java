@@ -15,7 +15,7 @@ import java.util.UUID;
 public class AchievmentServiceImpl implements AchievmentService{
 
     @Autowired
-    AchievmentRepository repository;
+    private AchievmentRepository repository;
 
     @Override
     public void add(Achievment achievment) throws Exception {

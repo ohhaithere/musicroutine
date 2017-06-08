@@ -34,7 +34,7 @@ public class UserDispatcherImpl implements UserDispatcher{
                     recordMetadata.topic(), recordMetadata.partition(), recordMetadata.offset(), user);
             return true;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return false;
         }
     }
 

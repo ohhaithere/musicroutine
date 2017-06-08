@@ -12,26 +12,26 @@ import java.util.UUID;
 public class Routine {
 
     @Id
-    UUID id;
-    String name;
-    String text;
-    String level;
-    Integer minutes;
+    private UUID id;
+    private String name;
+    private String text;
+    private String level;
+    private Integer minutes;
 
-    String instrument;
-    Date dateCreated;
+    private String instrument;
+    private Date dateCreated;
 
     public Routine() {
     }
 
     public Routine(String name, String text, String level, Integer minutes) {
         UUID uuid = UUID.randomUUID();
-        this.id = uuid;
-        this.name = name;
-        this.text = text;
-        this.level = level;
-        this.minutes = minutes;
-        this.dateCreated = new Date();
+        this.setId(uuid);
+        this.setName(name);
+        this.setText(text);
+        this.setLevel(level);
+        this.setMinutes(minutes);
+        this.setDateCreated(new Date());
     }
 
     public UUID getId() {

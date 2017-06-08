@@ -22,10 +22,10 @@ public class Achievment {
     }
 
     public Achievment(String name, Date date, String pic, UUID user_id) {
-        this.name = name;
-        this.date = date;
-        this.pic = pic;
-        this.user_id = user_id;
+        this.setName(name);
+        this.setDate(date);
+        this.setPic(pic);
+        this.setUser_id(user_id);
     }
 
     public UUID getId() {

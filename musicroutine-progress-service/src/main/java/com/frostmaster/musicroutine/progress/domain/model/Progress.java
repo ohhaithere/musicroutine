@@ -11,19 +11,19 @@ import java.util.UUID;
 public class Progress {
 
     @Id
-    UUID id;
-    UUID topic;
-    Integer progressParam;
-    UUID userId;
+    private UUID id;
+    private UUID topic;
+    private Integer progressParam;
+    private UUID userId;
 
     public Progress() {
     }
 
     public Progress(UUID topic, Integer progressParam, UUID userId) {
-        this.id = UUID.randomUUID();
-        this.topic = topic;
-        this.progressParam = progressParam;
-        this.userId = userId;
+        this.setId(UUID.randomUUID());
+        this.setTopic(topic);
+        this.setProgressParam(progressParam);
+        this.setUserId(userId);
     }
 
     public UUID getId() {

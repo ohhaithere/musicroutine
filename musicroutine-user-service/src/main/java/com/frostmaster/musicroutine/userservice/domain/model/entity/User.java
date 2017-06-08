@@ -7,6 +7,7 @@ import java.util.UUID;
  * Created by Igor_Usachev on 3/6/2017.
  */
 @Entity
+
 public class User extends BaseEntity<UUID>{
 
     private String password;

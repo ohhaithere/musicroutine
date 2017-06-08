@@ -8,11 +8,11 @@ import java.util.UUID;
  */
 public class AchievmentVO {
 
-    UUID id;
-    String name;
-    Date date;
-    String pic;
-    UUID user_id;
+    private UUID id;
+    private String name;
+    private Date date;
+    private String pic;
+    private UUID user_id;
 
     public AchievmentVO() {
     }

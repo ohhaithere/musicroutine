@@ -9,14 +9,14 @@ import java.util.UUID;
 public class RoutineVO
 {
 
-    UUID id;
-    String name;
-    String text;
-    String level;
-    Integer minutes;
+    private UUID id;
+    private String name;
+    private String text;
+    private String level;
+    private Integer minutes;
 
-    String instrument;
-    Date dateCreated;
+    private String instrument;
+    private Date dateCreated;
 
     public UUID getId() {
         return id;

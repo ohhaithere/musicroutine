@@ -53,9 +53,6 @@ public class UserServiceImpl implements UserService {
     public boolean exists(User user){
         User userToFind = null;
         userToFind = repository.findOne(userToFind.getId());
-        if(userToFind != null)
-            return true;
-        else
-            return false;
+        return userToFind != null;
     }
 }

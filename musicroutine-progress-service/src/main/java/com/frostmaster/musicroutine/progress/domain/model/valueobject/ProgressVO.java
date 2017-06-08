@@ -7,19 +7,19 @@ import java.util.UUID;
  */
 public class ProgressVO {
 
-    UUID id;
-    UUID topic;
-    Integer progressParam;
-    UUID userId;
+    private UUID id;
+    private UUID topic;
+    private Integer progressParam;
+    private UUID userId;
 
     public ProgressVO() {
     }
 
     public ProgressVO(UUID id, UUID topic, Integer progressParam, UUID userId) {
-        this.id = id;
-        this.topic = topic;
-        this.progressParam = progressParam;
-        this.userId = userId;
+        this.setId(id);
+        this.setTopic(topic);
+        this.setProgressParam(progressParam);
+        this.setUserId(userId);
     }
 
     public UUID getId() {
