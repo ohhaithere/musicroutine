@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserContoller {
 
     @Autowired
-    private UserDispatcher userDispatcher;
+    UserDispatcher userDispatcher;
 
     @Autowired
     private UserService userService;
