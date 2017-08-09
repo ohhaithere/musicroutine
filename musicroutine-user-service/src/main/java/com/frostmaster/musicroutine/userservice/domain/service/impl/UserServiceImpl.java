@@ -50,9 +50,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean exists(User user){
+    public  boolean exists(User user){
         User userToFind = null;
         userToFind = repository.findOne(userToFind.getId());
         return userToFind != null;
     }
+
 }

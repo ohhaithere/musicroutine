@@ -2,7 +2,6 @@ package com.frostmaster.musicroutine.userservice.resources;
 
 import com.frostmaster.musicroutine.userservice.domain.model.entity.User;
 import com.frostmaster.musicroutine.userservice.domain.model.valueobject.UserVO;
-import com.frostmaster.musicroutine.userservice.domain.service.UserDispatcher;
 import com.frostmaster.musicroutine.userservice.domain.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/v1/user")
 public class UserContoller {
 
-    @Autowired
-    UserDispatcher userDispatcher;
+  //  @Autowired
+  //  UserDispatcher userDispatcher;
 
     @Autowired
     private UserService userService;

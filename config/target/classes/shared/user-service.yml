@@ -5,3 +5,7 @@ kafka:
   producer:
     bootstrap: kafka:9092
     topic: users
+turbine:
+  aggregator:
+    clusterConfig: SAMPLE-HYSTRIX-AGGREGATE
+  appConfig: SAMPLE-HYSTRIX-AGGREGATE

@@ -1,14 +1,6 @@
 package com.frostmaster.musicroutine.userservice.domain.service.impl;
 
-import com.frostmaster.musicroutine.userservice.config.KafkaProducerProps;
-import com.frostmaster.musicroutine.userservice.domain.model.entity.User;
 import com.frostmaster.musicroutine.userservice.domain.service.UserDispatcher;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service("userDispatcher")
 public class UserDispatcherImpl implements UserDispatcher{
 
-    @Autowired
+   /* @Autowired
     private KafkaProducer<String, User> workUnitProducer;
 
     @Autowired
@@ -35,7 +27,9 @@ public class UserDispatcherImpl implements UserDispatcher{
             return true;
         } catch (Exception e) {
             return false;
-        }
-    }
+        }*/
+    //}
+
+
 
 }

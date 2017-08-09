@@ -54,19 +54,19 @@ services:
           build: musicroutine-progress-service
           restart: always
           ports:
-            - 6000:6000
+            - 3002:3002
 
-  progress-service:
+  achievment-service:
             build: musicroutine-achievment-service
             restart: always
             ports:
-              - 7000:7000
+              - 3003:3003
 
   routine-service:
         build: musicroutine-routine-service
         restart: always
         ports:
-          - 4000:4000
+          - 3001:3001
 
   monitoring:
       build: monitoring

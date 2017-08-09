@@ -11,6 +11,6 @@ zuul:
     routes:
       account-service:
             path: /users/**
-            serviceId: user-service
+            serviceId: user
             stripPrefix: false
             sensitiveHeaders:
