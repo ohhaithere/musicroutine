@@ -1,3 +1,5 @@
+UPD: This project is a mess, gonna make it look pretty in a couple of weeks
+
 # musicroutine
 Routine generator for musicians
 
