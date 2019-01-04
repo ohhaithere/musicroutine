@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Igor_Usachev on 3/6/2017.
  */
 @RestController
-@RequestMapping("/v1/user")
+@RequestMapping("")
 public class UserContoller {
 
   //  @Autowired

@@ -14,4 +14,5 @@ public class RegistyApplication {
     public static void main(String[] args) {
         SpringApplication.run(RegistyApplication.class, args);
     }
+
 }

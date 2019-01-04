@@ -16,6 +16,7 @@
         <module>musicroutine-routine-service</module>
         <module>musicroutine-progress-service</module>
         <module>musicroutine-achievment-service</module>
+        <module>tasksindexer-service</module>
     </modules>
     <packaging>pom</packaging>
 

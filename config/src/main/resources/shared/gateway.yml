@@ -1,3 +1,8 @@
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: false
+
 server:
   port: 5000
 
@@ -8,9 +13,8 @@ zuul:
     connect-timeout-millis: 20000
     socket-timeout-millis: 20000
 
-    routes:
-      account-service:
-            path: /users/**
-            serviceId: user
-            stripPrefix: false
-            sensitiveHeaders:
+  routes:
+    user-service:
+      path: /api/v1/user/**
+      serviceId: USER-SERVICE
+      url: http://user-service:3000

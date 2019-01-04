@@ -16,16 +16,16 @@ public class Achievment {
     private String name;
     private Date date;
     private String pic;
-    private UUID user_id;
+    private UUID userId;
 
     public Achievment() {
     }
 
-    public Achievment(String name, Date date, String pic, UUID user_id) {
+    public Achievment(String name, Date date, String pic, UUID userId) {
         this.setName(name);
         this.setDate(date);
         this.setPic(pic);
-        this.setUserId(user_id);
+        this.setUserId(userId);
     }
 
     public UUID getId() {
@@ -60,16 +60,11 @@ public class Achievment {
         this.pic = pic;
     }
 
-    public UUID getUseId() {
-        return user_id;
+    public UUID getUserId() {
+        return userId;
     }
 
-    public void setUserId(UUID user_id) {
-        this.user_id = user_id;
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
-
-
-
-
-
 }
