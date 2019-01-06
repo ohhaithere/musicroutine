@@ -1,16 +1,16 @@
 package com.frostmaster.musicroutine.userservice.resources;
 
 import com.frostmaster.musicroutine.userservice.domain.model.entity.User;
+import com.frostmaster.musicroutine.userservice.domain.model.valueobject.RegisterUserVO;
 import com.frostmaster.musicroutine.userservice.domain.model.valueobject.UserVO;
 import com.frostmaster.musicroutine.userservice.domain.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by Igor_Usachev on 3/6/2017.
- */
 @RestController
+@CrossOrigin
 @RequestMapping("")
 public class UserContoller {
 
@@ -20,8 +20,9 @@ public class UserContoller {
     @Autowired
     private UserService userService;
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST)
-    public void create(@RequestBody UserVO userVO) throws Exception {
+    public void create(@RequestBody RegisterUserVO userVO) throws Exception {
         User user = new User();
 
         BeanUtils.copyProperties(userVO, user);

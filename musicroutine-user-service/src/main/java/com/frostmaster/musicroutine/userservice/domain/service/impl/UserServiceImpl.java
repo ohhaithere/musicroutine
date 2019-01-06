@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-/**
- * Created by Igor_Usachev on 3/9/2017.
- */
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
@@ -18,34 +15,34 @@ public class UserServiceImpl implements UserService {
     private UserRepository repository;
 
     @Override
-    public void add(User user) throws Exception {
+    public void add(User user){
         UUID uuid = UUID.randomUUID();
         user.setId(uuid);
         repository.save(user);
     }
 
     @Override
-    public void update(User user) throws Exception {
+    public void update(User user) {
         repository.save(user);
     }
 
     @Override
-    public void delete(User user) throws Exception {
+    public void delete(User user) {
         repository.delete(user);
     }
 
     @Override
-    public User findById(String userId) throws Exception {
+    public User findById(String userId) {
         return repository.findOne(UUID.fromString(userId));
     }
 
     @Override
-    public Iterable<User> getAll() throws Exception {
+    public Iterable<User> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public User findByEmail(String email) throws Exception {
+    public User findByEmail(String email) {
         return repository.findByEmail(email);
     }
 

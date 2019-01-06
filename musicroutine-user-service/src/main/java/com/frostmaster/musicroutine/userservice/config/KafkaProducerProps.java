@@ -3,9 +3,6 @@ package com.frostmaster.musicroutine.userservice.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by Igor_Usachev on 3/7/2017.
- */
 @Component
 @ConfigurationProperties(prefix = "kafka.producer")
 public class KafkaProducerProps {

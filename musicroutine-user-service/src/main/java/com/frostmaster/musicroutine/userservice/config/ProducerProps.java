@@ -6,9 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-/**
- * Created by Igor_Usachev on 3/7/2017.
- */
 @Configuration
 public class ProducerProps {
 
