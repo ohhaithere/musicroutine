@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-/**
- * Created by Igor_Usachev on 4/19/2017.
- */
 @RestController
-@RequestMapping("/v1/routine")
+@RequestMapping("")
 public class RoutineController {
 
     @Autowired

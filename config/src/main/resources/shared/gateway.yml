@@ -18,3 +18,7 @@ zuul:
       path: /api/v1/user/**
       serviceId: USER-SERVICE
       url: http://user-service:3000
+    routine-service:
+      path: /api/v1/routines/**
+      serviceId: ROUTINE-SERVICE
+      url: http://routine-service:400
