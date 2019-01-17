@@ -17,8 +17,8 @@ import java.util.UUID;
 public class User{
 
     @Id
-    UUID id;
-    String name;
+    private UUID id;
+    private String name;
     private String password;
     private String email;
 

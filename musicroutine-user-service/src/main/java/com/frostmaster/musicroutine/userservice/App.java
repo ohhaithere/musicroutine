@@ -11,8 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * Created by Igor_Usachev on 3/6/2017.
  */
 @SpringBootApplication
-@EntityScan(basePackages = { "com.frostmaster.musicroutine.userservice.domain.model.entity" })
-@EnableJpaRepositories(basePackages = { "com.frostmaster.musicroutine.userservice.domain.repository" })
 @EnableEurekaClient
 @EnableConfigurationProperties
 public class App {

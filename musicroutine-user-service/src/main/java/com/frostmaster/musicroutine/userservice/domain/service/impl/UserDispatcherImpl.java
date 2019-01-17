@@ -3,7 +3,7 @@ package com.frostmaster.musicroutine.userservice.domain.service.impl;
 import com.frostmaster.musicroutine.userservice.domain.service.UserDispatcher;
 import org.springframework.stereotype.Service;
 
-@Service("userDispatcher")
+@Service
 public class UserDispatcherImpl implements UserDispatcher{
 
    /* @Autowired
